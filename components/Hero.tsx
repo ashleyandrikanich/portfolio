@@ -1,91 +1,57 @@
 import Image from "next/image";
-import Link from "next/link";
-import { projects, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
-const glowsync = projects.find((p) => p.featured);
+const highlights = [
+  "CompTIA Security+",
+  "Summa Cum Laude · IUP",
+  "Cybersecurity",
+  "AI Engineering",
+];
 
 export function Hero() {
   return (
-    <section className="border-b border-border/80 py-12 sm:py-16">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
-        <div className="flex items-center gap-4 sm:gap-5">
-          <Image
-            src={site.profileImage}
-            alt={site.profileImageAlt}
-            width={96}
-            height={96}
-            priority
-            className="h-16 w-16 shrink-0 rounded-full border-2 border-brand/40 object-cover object-top shadow-md sm:h-20 sm:w-20"
-          />
-          <div className="min-w-0">
-            <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl">
-              {site.name}
-            </h1>
-            <p className="mt-0.5 text-sm font-medium text-brand sm:text-lg">
-              {site.title}
-            </p>
-            <p className="mt-1 text-xs text-muted sm:text-sm">{site.location}</p>
-          </div>
-        </div>
+    <section className="border-b border-border/80 py-14 sm:py-20">
+      <div className="px-5 sm:px-8">
+        <div className="panel p-6 sm:p-10">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10">
+            <div className="shrink-0 self-center">
+              <div className="overflow-hidden rounded-lg border-2 border-[#e8d5b7]/60 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+                <Image
+                  src={site.profileImage}
+                  alt={site.profileImageAlt}
+                  width={480}
+                  height={624}
+                  priority
+                  quality={100}
+                  sizes="(max-width: 640px) 192px, 224px"
+                  className="block h-52 w-40 object-cover object-[center_38%] sm:h-64 sm:w-48"
+                />
+              </div>
+            </div>
 
-        <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-          {site.tagline}
-        </p>
+            <div className="min-w-0 flex-1 text-center lg:text-left">
+              <h1 className="accent-heading text-3xl font-bold text-foreground sm:text-[2.75rem] sm:leading-tight">
+                {site.name}
+              </h1>
+              <p className="mt-2 text-lg font-medium text-[#e8d5b7]">
+                {site.title}
+              </p>
+              <p className="mt-1 text-sm text-muted">{site.location}</p>
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          <Link
-            href="#contact"
-            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-background hover:bg-brand-dark"
-          >
-            Contact
-          </Link>
-          <Link
-            href="#experience"
-            className="rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground hover:border-brand/50"
-          >
-            Experience
-          </Link>
-          <Link
-            href="#projects"
-            className="rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground hover:border-brand/50"
-          >
-            Projects
-          </Link>
-        </div>
+              <ul className="mt-5 grid w-fit grid-cols-2 gap-2 mx-auto lg:mx-0">
+                {highlights.map((item) => (
+                  <li key={item} className="chip justify-self-center lg:justify-self-start">
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
-        {glowsync ? (
-          <aside className="mt-10 flex flex-col gap-4 rounded-lg border border-brand/30 bg-card p-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="section-label">Featured build</p>
-              <p className="mt-1 font-semibold text-foreground">{glowsync.name}</p>
-              <p className="mt-1 max-w-lg text-sm text-muted">
-                {glowsync.description}
+              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+                {site.tagline}
               </p>
             </div>
-            <div className="flex shrink-0 flex-wrap gap-2">
-              {glowsync.href ? (
-                <Link
-                  href={glowsync.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-background hover:bg-brand-dark"
-                >
-                  Open GlowSync →
-                </Link>
-              ) : null}
-              {glowsync.repo ? (
-                <Link
-                  href={glowsync.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md border border-border px-4 py-2 text-sm font-medium text-muted hover:text-foreground"
-                >
-                  Source
-                </Link>
-              ) : null}
-            </div>
-          </aside>
-        ) : null}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,31 +1,33 @@
 # Portfolio
 
-Personal portfolio site — separate from [GlowSync](../glowsync).
+Personal portfolio site (Next.js).
 
-## Run locally
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) (or the port shown in the terminal).
 
-## Customize
+## Assets
 
-Edit `lib/site.ts` to update:
+Regenerate GlowSync screenshot and resume PDF:
 
-- Name, title, tagline, email, LinkedIn, GitHub
-- Projects (add GlowSync live URL when you have it)
-- Skills
+```bash
+npm run capture-assets
+```
 
-## Deploy
+## Deploy on Vercel
 
-1. Create a new GitHub repository (e.g. `portfolio`).
-2. Push this folder to that repo (not inside the glowsync repo).
-3. In Vercel, add a **new project** and connect the portfolio repo.
-4. Production branch: `main`.
+1. Push this folder to a GitHub repository.
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
+3. Framework preset: **Next.js** (defaults are fine).
+4. Deploy. Set `NEXT_PUBLIC_SITE_URL` to your production URL (optional, for Open Graph).
 
-## GlowSync
+Or from this directory after `npx vercel login`:
 
-GlowSync lives in a separate project at `../glowsync`. Link to your deployed GlowSync URL in `lib/site.ts` under the GlowSync project `href` field.
+```bash
+npx vercel --prod
+```

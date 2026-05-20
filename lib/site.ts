@@ -11,13 +11,22 @@ export const site = {
   location: "Oxford, PA",
   profileImage: "/profile.png",
   profileImageAlt: "Ashley Andrikanich",
-  resumeUrl: undefined as string | undefined,
+  resumeDocUrl: "/Ashley-Andrikanich-Resume.docx",
+  resumePdfUrl: "/Ashley-Andrikanich-Resume.pdf",
+  resumeViewUrl: "/resume-preview.html",
 } as const;
 
-export const aboutIntro = [
-  "I am a CompTIA Security+ certified Computer Science graduate (Cybersecurity concentration, Summa Cum Laude) with practical experience building secure, data-driven web applications.",
-  "As a Cybersecurity/AI Engineering Intern at End of an Era, I work on identity management, automated CI/CD, and full-stack features using React, Next.js, and TypeScript. I also ship GlowSync, a personal skincare routine platform with security hardening and automated testing.",
-];
+export const aboutInterests = [
+  "Cybersecurity",
+  "AI Engineering",
+  "UI/UX",
+  "Threat Analysis",
+  "Web Development",
+  "Software Engineering",
+] as const;
+
+export const aboutIntro =
+  "CompTIA Security+ certified CS graduate (cybersecurity concentration, Summa Cum Laude) who likes building software that is secure, thoughtful, and easy to use.";
 
 export const quickFacts = [
   "B.S. Computer Science (Cybersecurity), Indiana University of Pennsylvania — GPA 3.78, Summa Cum Laude",
@@ -42,36 +51,6 @@ export const certifications = [
   },
 ] as const;
 
-export const coreFocus = [
-  {
-    title: "Application security",
-    body: "Multi-factor authentication, password lockout policies, rate limiting, secure sessions, and defensive coding aligned with real-world threat models.",
-  },
-  {
-    title: "AI-assisted engineering",
-    body: "LLM integration, prompt engineering, secure data parsing, and containerized agent workflows with NanoClaw and Docker.",
-  },
-  {
-    title: "Full-stack development",
-    body: "Next.js, React, TypeScript, Tailwind CSS, Prisma, and relational databases—from UI polish through API and data modeling.",
-  },
-  {
-    title: "Quality & automation",
-    body: "Vitest unit tests, ESLint, GitHub Actions pipelines, and dependency auditing before deployment.",
-  },
-] as const;
-
-export const interests = [
-  "Cybersecurity",
-  "AI Engineering",
-  "Web Development",
-  "Threat Analysis",
-  "Identity Management",
-  "CI/CD",
-  "Health Tech",
-  "UI/UX",
-] as const;
-
 export type Experience = {
   id: string;
   company: string;
@@ -85,46 +64,46 @@ export const experiences: Experience[] = [
   {
     id: "end-of-an-era",
     company: "End of an Era",
-    role: "Cybersecurity / AI Engineer Intern",
+    role: "Cybersecurity / AI Engineering Intern",
     period: "January 2026 – May 2026",
     overview:
-      "Internship focused on security infrastructure, AI automation, and full-stack feature development for estate-planning workflows.",
+      "Internship focused on authentication security, frontend UI work, Git and GitHub collaboration, and automated checks in the development pipeline.",
     achievements: [
-      "Enforced multi-factor authentication for administrative accounts to strengthen access control",
-      "Developed and deployed a password lockout policy with a secure forgot-password bypass",
-      "Built a manual account unlock feature in the admin dashboard for granular access control",
-      "Engineered containerized AI agent workflows with NanoClaw and Docker for isolated execution",
-      "Architected the Plan For Your Pets and Dependents module with multi-page workflows",
-      "Standardized global UI with React and Tailwind CSS and improved navigation flow redirects",
+      "Implemented and enforced platform-wide MFA and account lockout policies to secure sign-in and defend against brute-force attacks",
+      "Developed and standardized responsive interfaces with Next.js, TypeScript, and Tailwind CSS for visual consistency and frontend performance",
+      "Managed codebase updates with Git and GitHub—submitting, reviewing, and merging code through pull requests",
+      "Collaborated in an automated development pipeline so changes met syntax, styling, and structure requirements before deployment",
     ],
   },
   {
     id: "glowsync",
     company: "GlowSync",
-    role: "Full-Stack Developer",
+    role: "Software Engineer · Personal Project",
     period: "May 2026 – Present",
     overview:
-      "Personal project: a responsive skincare routine app with quiz-driven recommendations, routine tracking, and security-first infrastructure.",
+      "Personal skincare app I built end to end—secure accounts, personalized routines, and ingredient safety checks, live on Vercel.",
     achievements: [
-      "Built an interactive skin assessment quiz that generates tailored AM/PM routine recommendations",
-      "Developed routine tracking with active-ingredient ordering, usage logging, and local persistence",
-      "Programmed conflict detection to flag risky active ingredient pairings automatically",
-      "Implemented encrypted sessions, rate limiting, same-origin checks, and security headers",
-      "Added Vitest suites and a GitHub Actions CI/CD pipeline with lint, build, and audit steps",
+      "Built with Next.js, React, TypeScript, Prisma, and SQLite; deployed on Vercel",
+      "Secure sign-up and sign-in with hashed passwords, login limits, and browser security headers",
+      "Skin quiz and routine builder with morning/evening steps and warnings when ingredients don't mix well",
+      "Actives library, routine coach, journal, product compare, and wishlist for tracking and learning",
+      "Automated tests plus lint, build, and dependency checks before each release",
     ],
   },
   {
     id: "iup",
     company: "Indiana University of Pennsylvania",
-    role: "Computer Science Student",
+    role: "B.S. Computer Science · Cybersecurity",
     period: "August 2021 – May 2025",
     overview:
-      "Bachelor's in Computer Science with a Cybersecurity concentration and Criminology minor. Graduated Summa Cum Laude with a 3.78 GPA.",
+      "CS degree with a cybersecurity focus—security coursework, hands-on projects, and graduated Summa Cum Laude (3.78 GPA).",
     achievements: [
-      "Trustee's Scholarship Recipient (2021–2025) and Provost Scholar (2024, 2025)",
-      "PSAC Scholar Athlete (2022, 2023) — IUP Women's Lacrosse",
-      "Led and contributed to full-stack group projects including StatHub and Automated Line Art",
-      "Volunteer, Indiana County Humane Society (September 2024 – May 2025)",
+      "Coursework in network security, risk management, threat analysis, and secure systems",
+      "StatHub — team-built PHP/MySQL app for sports stats with real queries and input validation",
+      "Automated Line Art — Python + Unix pipeline that turned images into robotic drawing paths",
+      "Learned to plan, build, and ship software through group projects and tight deadlines",
+      "Summa Cum Laude · Trustee's Scholarship and Provost Scholar",
+      "Women's lacrosse and volunteer work at the Indiana County Humane Society",
     ],
   },
 ];
@@ -138,6 +117,8 @@ export type Project = {
   href?: string;
   repo?: string;
   featured?: boolean;
+  image?: string;
+  imageAlt?: string;
 };
 
 export const projects: Project[] = [
@@ -145,17 +126,20 @@ export const projects: Project[] = [
     name: "GlowSync",
     period: "May 2026 – Present",
     description:
-      "A full-stack skincare routine app that helps users build personalized AM/PM regimens, track products, and avoid active-ingredient conflicts.",
+      "Full-stack skincare app for personalized AM/PM routines, ingredient safety, and day-to-day tracking—with secure accounts and an education-first experience.",
     highlights: [
-      "Interactive skin quiz with dynamic routine recommendations",
-      "Routine tracker with usage logging and conflict detection",
-      "Secure auth, rate limiting, same-origin verification, and security headers",
-      "Vitest unit tests and GitHub Actions CI with lint, build, and npm audit",
+      "Skin quiz and routine coach that turn answers into morning/evening product ideas",
+      "My Routine tracker with usage logging, product status, and ingredient conflict warnings",
+      "Actives library, routine guide, education hub, journal, history, compare, and wishlist",
+      "Secure accounts (hashed passwords, login limits, protected cookies, security headers)",
+      "Vitest tests plus automated lint, build, and dependency checks; live on Vercel",
     ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "Vitest"],
     href: "https://glowsync-nine.vercel.app/",
     repo: "https://github.com/ashleyandrikanich/glowsync",
     featured: true,
+    image: "/glowsync-preview.png",
+    imageAlt: "GlowSync skincare app home screen",
   },
   {
     name: "StatHub",
@@ -199,7 +183,7 @@ export const skills: SkillCard[] = [
   {
     title: "AI Engineering",
     description:
-      "LLM integration, prompt engineering, secure data parsing, Claude Code, and containerized agent workflows with NanoClaw and Docker.",
+      "LLM integration, prompt engineering, secure data parsing, and AI-assisted development with Claude Code.",
   },
   {
     title: "Programming Languages",

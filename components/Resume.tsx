@@ -12,25 +12,16 @@ export function Resume() {
               Resume
             </h2>
             <p className="mt-2 text-sm text-muted">
-              Preview below or download PDF / Word
+              Preview below or download PDF
             </p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <a
-              href={site.resumePdfUrl}
-              download="Ashley-Andrikanich-Resume.pdf"
-              className="btn-primary"
-            >
-              Download PDF
-            </a>
-            <a
-              href={site.resumeDocUrl}
-              download="Ashley-Andrikanich-Resume.docx"
-              className="btn-secondary"
-            >
-              Download Word
-            </a>
-          </div>
+          <a
+            href={`${site.resumePdfUrl}?v=20260521b`}
+            download="Ashley-Andrikanich-Resume.pdf"
+            className="btn-primary"
+          >
+            Download PDF
+          </a>
         </div>
 
         <ResumeViewer />

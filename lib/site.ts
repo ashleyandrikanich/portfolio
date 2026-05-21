@@ -8,12 +8,12 @@ export const site = {
   phone: "(302) 559-6012",
   github: "https://github.com/ashleyandrikanich",
   linkedin: "https://www.linkedin.com/in/ashley-andrikanich-164470300",
+  glowsyncUrl: "https://glow-sync.vercel.app",
   location: "Oxford, PA",
   profileImage: "/profile.png",
   profileImageAlt: "Ashley Andrikanich",
-  resumeDocUrl: "/Ashley-Andrikanich-Resume.docx",
   resumePdfUrl: "/Ashley-Andrikanich-Resume.pdf",
-  resumeViewUrl: "/resume-preview.html",
+  resumeViewUrl: "/print/resume",
 } as const;
 
 export const aboutInterests = [
@@ -119,6 +119,7 @@ export type Project = {
   featured?: boolean;
   image?: string;
   imageAlt?: string;
+  imagePosition?: "left" | "right";
 };
 
 export const projects: Project[] = [
@@ -135,11 +136,12 @@ export const projects: Project[] = [
       "Vitest tests plus automated lint, build, and dependency checks; live on Vercel",
     ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "Vitest"],
-    href: "https://glowsync-nine.vercel.app/",
+    href: site.glowsyncUrl,
     repo: "https://github.com/ashleyandrikanich/glowsync",
     featured: true,
     image: "/glowsync-preview.png",
     imageAlt: "GlowSync skincare app home screen",
+    imagePosition: "right",
   },
   {
     name: "StatHub",

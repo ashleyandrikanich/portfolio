@@ -143,6 +143,37 @@ main {
   border-bottom: 1px solid rgba(122, 53, 64, 0.35);
 }
 
+/* Print/PDF route: normal document flow (no fixed viewport) */
+body:has(.resume-print-shell) {
+  background-color: #fafaf9 !important;
+  color: #292524 !important;
+}
+
+body:has(.resume-print-shell) > div {
+  min-height: auto;
+  flex: none;
+}
+
+.resume-print-page {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.resume-print-page h3 {
+  page-break-after: avoid;
+}
+
+.resume-print-page section {
+  page-break-inside: avoid;
+}
+
+@media print {
+  .resume-print-page {
+    max-width: none;
+    padding: 0;
+  }
+}
+
 .section-label {
   display: inline-block;
   border-radius: 9999px;

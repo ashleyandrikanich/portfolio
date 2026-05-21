@@ -26,7 +26,10 @@ const rows = [
 
 export function Contact() {
   return (
-    <section id="contact" className="section-surface py-14 sm:py-20">
+    <section
+      id="contact"
+      className="section-surface border-b-0 py-14 sm:py-20"
+    >
       <div className="w-full px-5 sm:px-8">
         <SectionHeading
           number="07"
@@ -39,7 +42,7 @@ export function Contact() {
             {rows.map((row) => (
               <li
                 key={row.label}
-                className="flex flex-col gap-1 border-b border-border/50 pb-4 last:border-0 last:pb-0 sm:flex-row sm:items-center sm:gap-4"
+                className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4"
               >
                 <span className="w-24 shrink-0 text-xs font-semibold uppercase tracking-wide text-[#e8d5b7]">
                   {row.label}
@@ -59,9 +62,6 @@ export function Contact() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm text-muted">
-            Prefer email or phone — I usually reply within a day or two.
-          </p>
         </div>
       </div>
     </section>

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "capture-assets": "node scripts/capture-assets.mjs"
+    "capture-assets": "node scripts/capture-assets.mjs",
+    "export-resume-pdf": "powershell -ExecutionPolicy Bypass -File scripts/export-resume-pdf.ps1"
   },
   "dependencies": {
     "next": "16.2.6",

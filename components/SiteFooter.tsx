@@ -5,7 +5,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-[#3d1219] py-8 text-sm text-muted">
+    <footer className="bg-[#3d1219] py-8 text-sm text-muted">
       <div className="flex flex-col gap-3 px-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p>
           © {year} {site.name}
@@ -21,7 +21,7 @@ export function SiteFooter() {
             Resume
           </Link>
           <Link
-            href="https://glowsync-nine.vercel.app/"
+            href={site.glowsyncUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="transition hover:text-[#e8d5b7]"

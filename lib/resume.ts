@@ -14,20 +14,34 @@ export const resume = {
     {
       label: "Security & networking",
       items:
-        "Network security, risk management, threat analysis, incident response, MFA, password lockout logic, CI/CD, GitHub Actions",
+        "Network security, risk management, threat analysis, incident response, Wireshark, social engineering tactics, multi-factor authentication, password lockout logic, CI/CD pipelines, GitHub Actions",
     },
     {
       label: "AI engineering",
-      items: "LLM integration, prompt engineering, AI data parsing, Claude Code",
-    },
-    {
-      label: "Development",
       items:
-        "Python, Java, PHP, SQL, TypeScript, Next.js, React, Tailwind CSS, Prisma, Vitest",
+        "LLM integration, prompt engineering, AI data parsing, Claude Code",
     },
     {
-      label: "Systems",
-      items: "MySQL, PostgreSQL, Unix/Linux, Windows, Git, Docker, VS Code, Cursor",
+      label: "Programming languages",
+      items: "Python, Java, PHP, SQL, HTML, JavaScript, TypeScript",
+    },
+    {
+      label: "Libraries & frameworks",
+      items: "Next.js, React, Tailwind CSS, Prisma ORM",
+    },
+    {
+      label: "Database management",
+      items: "MySQL, phpMyAdmin, PostgreSQL",
+    },
+    {
+      label: "Systems & tools",
+      items:
+        "Unix/Linux, Windows, Git, GitHub, VS Code, Cursor, Vitest, ESLint, NanoClaw",
+    },
+    {
+      label: "Soft skills",
+      items:
+        "Communication, adaptability, time management, continuous learning, teamwork, problem solving",
     },
   ],
   education: {
